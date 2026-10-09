@@ -1,165 +1,70 @@
-# 🚀 Prashanth Kumar Reddy - Portfolio
+# Kage
 
-A modern, animated personal portfolio website built with React and Vite, featuring smooth scroll animations, interactive UI components, and a futuristic design.
+An interactive five-chapter night walk through a Kyoto mountain temple, rendered live in Three.js and layered with cinematic generated imagery.
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-emerald?style=for-the-badge&logo=vercel)](https://prashanth-k-r.vercel.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/prashanth-k-1/Portfolio)
+[**View the live project**](https://mengto.github.io/kage/) · [**View the source**](https://github.com/MengTo/kage) · [**Read the build prompt**](PROMPT.md)
 
-![Portfolio Preview](src/assets/projects/portfolio.png)
+![Kage preview](assets/kage-preview.webp)
 
-## ✨ Features
+## What it does
 
-- **🎨 Modern UI/UX** - Clean, futuristic design with emerald accent theme
-- **�� Smooth Animations** - Scroll-triggered animations using Framer Motion
-- **📱 Fully Responsive** - Optimized for all screen sizes
-- **⚡ High Performance** - Built with Vite for lightning-fast load times
-- **🎭 Interactive Elements** - Hover effects, marquee scrolling, and 3D effects
-- **🌙 Dark Theme** - Eye-friendly dark mode design
+- Moves a live WebGL camera through a mountain temple as the page scrolls.
+- Combines procedural architecture, lantern light, fog, rain, drifting leaves, a vermilion moon, and a restrained bloom pipeline.
+- Layers editorial typography, generated scene plates, and alpha-preserving WebP foreground elements over the 3D world, with section-specific fade and blur transitions.
+- Includes chapter navigation, a responsive mobile layout, reduced-motion behavior, and a custom cursor for precise pointer devices.
 
-## 🛠️ Tech Stack
+## How it is made
 
-| Category | Technologies |
-|----------|-------------|
-| **Frontend** | React 18, JavaScript |
-| **Styling** | Tailwind CSS |
-| **Animations** | Framer Motion |
-| **Build Tool** | Vite 6 |
-| **Icons** | Lucide React, React Icons |
-| **Deployment** | Vercel |
+Kage is a deliberately small static site. `index.html` contains the document structure, CSS, procedural scene construction, scroll choreography, and interaction logic. A vendored Three.js r149 build provides WebGL rendering without a package manager or build step.
 
-## 📂 Project Structure
+The temple, torii, lanterns, moon, terrain, rain, leaves, fog, and post-processing are constructed at runtime. Optimized WebP scene plates and foreground cutouts sit in normal HTML layers, giving the page its collage-like depth while keeping the camera path and lighting live.
 
-```
-├── public/
-│   ├── favicon.svg
-│   └── FinalResume.pdf
-├── src/
-│   ├── assets/
-│   │   ├── prashanth.png
-│   │   └── projects/
-│   ├── components/
-│   │   ├── BackToTop.jsx
-│   │   ├── Contact.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Loader.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── Projects.jsx
-│   │   └── Technologies.jsx
-│   ├── constants/
-│   │   └── index.js
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-├── index.html
-├── package.json
-├── tailwind.config.js
-└── vite.config.js
-```
+## Build or remix it
 
-## 🚀 Getting Started
+The portable implementation brief in [PROMPT.md](PROMPT.md) describes the scene structure, layout system, motion language, and quality constraints needed to rebuild or reinterpret the experience.
 
-### Prerequisites
+## Run locally
 
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/prashanth-k-1/Portfolio.git
-   cd Portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open in browser**
-   ```
-   http://localhost:5173
-   ```
-
-### Build for Production
+From the repository root, run:
 
 ```bash
-npm run build
+python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-## 📄 Sections
+Then visit [http://127.0.0.1:4173/](http://127.0.0.1:4173/).
 
-### 🏠 Hero
-- Animated typewriter effect
-- Professional introduction
-- Quick navigation links
+There is no build step, environment variable, analytics script, or runtime network dependency. Python is used only to serve the static files locally; any equivalent static server will work.
 
-### 💻 Technologies
-- Scrolling marquee of skills
-- 19+ technologies with icons
-- Interactive hover effects with glow
+## Project structure
 
-### 💼 Experience
-- Timeline-style layout
-- Work experience cards with animations
-- Technology tags
+```text
+kage/
+├── index.html
+├── PROMPT.md
+├── README.md
+├── assets/
+│   └── kage-preview.webp
+└── secret-pathways-assets/
+    ├── fonts.css
+    ├── three.min.js
+    ├── generated/
+    └── foreground/png/
+```
 
-### 📚 Publication
-- IEEE published research paper
-- Model performance metrics
-- Direct DOI link
+## Design and attribution
 
-### 🎯 Projects
-- Featured projects showcase
-- Live demo links
-- Technology stack display
+Kage is an original, independent design study inspired by Japanese temple architecture and night gardens. It is not affiliated with a specific temple, cultural institution, or tourism organization.
 
-### 📬 Contact
-- Contact form
-- Social media links
-- Location information
+The cinematic scene plates and foreground artwork were generated for this project using GPT Image 2, then art-directed and composed with the live Three.js scene. The vendored Three.js r149 build retains its MIT license notice and copyright attribution.
 
-## 🎨 Color Palette
+## More projects
 
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Emerald | `#10B981` | Primary accent |
-| Black | `#000000` | Background |
-| Zinc | `#71717A` | Text secondary |
-| White | `#FFFFFF` | Text primary |
+Other single-file experiments in the same vein — no build step, no framework, everything in one HTML document.
 
-## 📱 Responsive Breakpoints
+- [**Complete Shelf**](https://mengto.github.io/complete-shelf/) — an original Three.js library of seven interactive clothbound hardcovers. · [source](https://github.com/MengTo/complete-shelf)
+- [**Sketchbook**](https://mengto.com) — a page-flipping sketchbook of Singapore: drag to turn the page, drag the magnifier across it. · [source](https://github.com/MengTo/sketchbook)
+- [**Agent Skills**](https://github.com/MengTo/Skills) — the reusable skill library these pages are built with, including the [falling leaves](https://github.com/MengTo/Skills/tree/main/agent-skills/web-design/falling-leaves) and [pointer trail](https://github.com/MengTo/Skills/tree/main/agent-skills/web-design/pointer-trail-emitter) techniques extracted from Kage.
 
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: > 1024px
+## License
 
-## ⚡ Performance
-
-- Lighthouse Score: 90+
-- First Contentful Paint: < 1.5s
-- Code splitting enabled
-- Optimized images
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Connect
-
-- **Portfolio**: [prashanth-k-r.vercel.app](https://prashanth-k-r.vercel.app/)
-- **LinkedIn**: [linkedin.com/in/cprashanthkr](https://linkedin.com/in/cprashanthkr)
-- **GitHub**: [github.com/prashanth-k-1](https://github.com/prashanth-k-1)
-- **Email**: prashanthkr7799@gmail.com
-
----
-
-<p align="center">
-  Made with ❤️ by Prashanth Kumar Reddy
-</p>
+No license is currently granted for reuse or redistribution of the original Kage code or artwork. The third-party Three.js runtime remains covered by its included MIT license notice.
