@@ -327,7 +327,7 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
    card's outline is not here at all: it is drawn in the cloth shader, where it
    can follow the folds instead of tracing the flat box behind them. */
 .cloth-out{ position:absolute; pointer-events:none; z-index:1; }
-.on-cloth{ background:none !important; outline:0 !important; overflow:visible; }
+.on-cloth{ outline:0 !important; overflow:visible; }
 .on-cloth::after{ display:none; }
 
 /* ------------------------------------------------- the lights in the stills
@@ -4020,7 +4020,8 @@ function clothPlate(img, w, h) {
 }
 
 function buildCardCloth() {
-  if (COARSE) return;                     /* no pointer to brush it with */
+  // Local files cannot reliably upload image textures; retain the CSS banners.
+  if (COARSE || REDUCE || location.protocol === 'file:') return;
   $$('.cards .card-fr').forEach(fr => {
     const url = (getComputedStyle(fr).backgroundImage.match(/url\(["']?([^"')]+)/) || [])[1];
     if (!url) return;
@@ -4035,11 +4036,15 @@ function buildCardCloth() {
       };
       const out = document.createElement('canvas');
       out.className = 'cloth-out'; out.setAttribute('aria-hidden', 'true');
+      out.addEventListener('webglcontextlost', () => {
+        out.style.display = 'none';
+        fr.classList.remove('on-cloth');
+      });
       fr.appendChild(out);
       const inst = createCloth(out, get, { wind: 3, speed: .5, amplitude: 30, drape: 40,
         brush: 2.05, brushSize: 150, damping: 1, light: .5, sheen: .1, shadow: .25,
         cornerRadius: 20, perspective: 1200, pin: 'top' });
-      /* only hide the card's own painting once the fabric is really carrying it */
+      /* Keep the image underneath so a delayed or lost WebGL frame never blanks the banner. */
       if (!inst) { out.remove(); return; }
       fr.classList.add('on-cloth');
       const card = fr.closest('.card') || fr;
