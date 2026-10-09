@@ -575,12 +575,48 @@ body[data-layout-hero="b"] .peek-cap b.jp{ font-size:clamp(20px,2.2vw,34px); let
    the one mark on that side of the frame now that the romanization has gone. */
 body[data-layout-hero="b"] .hero-side{
   left:auto; right:var(--pad); top:calc(var(--nav-h) + clamp(14px,3vh,42px));
-  bottom:auto; transform:none; display:block;
+  bottom:auto; transform:none; display:flex; flex-direction:row;
+  align-items:flex-start; gap:clamp(18px,2.1vw,34px);
 }
 body[data-layout-hero="b"] .hero-side .v{
   position:static; transform:none;
   font-size:clamp(30px,3.2vw,54px); letter-spacing:.12em; color:rgba(223,231,224,.62);
 }
+
+/* A small live system clock counterbalances the vertical title. It uses the
+   same quiet instrument-panel language as the chapter rail: no card, no
+   outline, just measured type, a fine rule and one live vermilion signal. */
+.hero-clock{
+  width:clamp(62px,5.2vw,82px); padding-top:.08em;
+  font-family:'Onest',sans-serif; font-variant-numeric:tabular-nums;
+  color:rgba(223,231,224,.78); text-shadow:0 1px 16px rgba(3,6,8,.92);
+}
+.hero-clock-time{ display:grid; gap:1px; }
+.hero-clock-time span{
+  position:relative; display:block; font-size:clamp(21px,2vw,31px);
+  font-weight:300; line-height:1.08; letter-spacing:.08em;
+}
+.hero-clock-time span + span::before{
+  content:''; position:absolute; left:0; top:-1px; width:14px; height:1px;
+  background:rgba(223,231,224,.18);
+}
+.hero-clock-time .clock-ss{ color:var(--bone); }
+.hero-clock-time .clock-ss::after{
+  content:''; position:absolute; right:2px; top:50%; width:4px; height:4px;
+  border-radius:50%; background:var(--vermilion); box-shadow:0 0 9px rgba(224,35,28,.8);
+  transform:translateY(-50%); animation:clock-pulse 1s steps(1,end) infinite;
+}
+.hero-clock-meta{
+  margin-top:clamp(12px,1.5vh,18px); padding-top:10px;
+  border-top:1px solid rgba(223,231,224,.18); display:grid; gap:3px;
+}
+.hero-clock-meta span,.hero-clock-meta b,.hero-clock-meta i{
+  display:block; font-style:normal; font-weight:400; text-transform:uppercase;
+}
+.hero-clock-meta span{ font-size:8px; letter-spacing:.22em; color:var(--vermilion); }
+.hero-clock-meta b{ font-size:9px; letter-spacing:.12em; color:var(--bone-dim); white-space:nowrap; }
+.hero-clock-meta i{ font-size:7px; line-height:1.5; letter-spacing:.15em; color:var(--muted); }
+@keyframes clock-pulse{ 0%,49%{ opacity:1; } 50%,100%{ opacity:.25; } }
 
 /* The vertical title trades itself for its English reading on hover: the three
    kanji lift out together and DEVELOPER arrives in their place, still set
@@ -606,10 +642,11 @@ body[data-layout-hero="b"] .hero-side .v{
   opacity:0; translate:0 10px;
   transition:opacity .45s var(--ease-out), translate .45s var(--ease-out);
 }
-.hero-side:hover .v-jp{ opacity:0; translate:0 -10px; }
-.hero-side:hover .v-en{ opacity:1; translate:0 0; }
+.hero-side .v:hover .v-jp{ opacity:0; translate:0 -10px; }
+.hero-side .v:hover .v-en{ opacity:1; translate:0 0; }
 @media (prefers-reduced-motion:reduce){
   .v-jp, .v-en{ transition-duration:.001s; }
+  .hero-clock-time .clock-ss::after{ animation:none; }
 }
 
 /* — story B · spread: the title crosses two columns, the reading column is
@@ -1023,6 +1060,18 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   <div class="word-fb" aria-hidden="true">PRASHANTH_K_R</div>
 
   <div class="hero-side" data-rv="up">
+    <div class="hero-clock" id="hero-clock" aria-label="Current time in Tirupati, India">
+      <time class="hero-clock-time" datetime="">
+        <span class="clock-hh">00</span>
+        <span class="clock-mm">00</span>
+        <span class="clock-ss">00</span>
+      </time>
+      <div class="hero-clock-meta">
+        <span class="clock-day">Friday</span>
+        <b class="clock-date">09 Oct 2026</b>
+        <i>IST / Tirupati<br>Asia / Kolkata</i>
+      </div>
+    </div>
     <span class="v jp">
       <span class="v-jp" aria-hidden="true"><i>開</i><i>発</i><i>者</i></span>
       <span class="v-en">Developer</span>
@@ -4484,6 +4533,44 @@ function wireForegroundStages() {
   pairs.forEach(pair => observer.observe(pair.section));
 }
 
+/* --------------------------------------------------------- live local time
+   The portfolio is anchored to Tirupati, so the clock is explicit about its
+   timezone instead of silently inheriting whichever machine is viewing it. */
+function wireClock() {
+  const root = $('#hero-clock');
+  if (!root) return;
+  const time = root.querySelector('time');
+  const hh = root.querySelector('.clock-hh');
+  const mm = root.querySelector('.clock-mm');
+  const ss = root.querySelector('.clock-ss');
+  const day = root.querySelector('.clock-day');
+  const date = root.querySelector('.clock-date');
+  const zone = 'Asia/Kolkata';
+  const clockFmt = new Intl.DateTimeFormat('en-IN', {
+    timeZone:zone, hour:'2-digit', minute:'2-digit', second:'2-digit', hourCycle:'h23'
+  });
+  const dayFmt = new Intl.DateTimeFormat('en-IN', { timeZone:zone, weekday:'long' });
+  const dateFmt = new Intl.DateTimeFormat('en-IN', {
+    timeZone:zone, day:'2-digit', month:'short', year:'numeric'
+  });
+  const update = () => {
+    const now = new Date();
+    const parts = Object.fromEntries(clockFmt.formatToParts(now).map(p => [p.type, p.value]));
+    hh.textContent = parts.hour; mm.textContent = parts.minute; ss.textContent = parts.second;
+    day.textContent = dayFmt.format(now);
+    date.textContent = dateFmt.format(now).replace(/,/g, '');
+    time.dateTime = now.toISOString();
+    root.setAttribute('aria-label', 'Current time in Tirupati: ' +
+      parts.hour + ':' + parts.minute + ':' + parts.second + ', ' + day.textContent + ', ' + date.textContent);
+  };
+  update();
+  let timer = setInterval(update, 1000);
+  document.addEventListener('visibilitychange', () => {
+    clearInterval(timer);
+    if (!document.hidden) { update(); timer = setInterval(update, 1000); }
+  });
+}
+
 /* ------------------------------------------------------ leaving the hero
    Everything along the foot of the hero is spent the moment the walk starts:
    the cue has been read, the four chapters have been offered, the preview has
@@ -4981,7 +5068,7 @@ const JOBS = [
 
 function boot() {
   makeGrain();
-  wireReveals(); wireForegroundStages(); wireNav(); wireHeroExit(); wireFocus(); wireCursor();
+  wireReveals(); wireForegroundStages(); wireNav(); wireClock(); wireHeroExit(); wireFocus(); wireCursor();
   document.body.classList.add('is-locked');
   let i = 0;
   const step = () => {
