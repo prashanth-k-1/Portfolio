@@ -978,6 +978,8 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   .mask-line > span,.word{ opacity:1 !important; transform:none !important; }
 }
 </style>
+<link rel="stylesheet" href="portfolio.css">
+<script src="portfolio.js" defer></script>
 </head>
 <body data-layout-hero="b" data-layout-story="b" data-layout-gallery="b"
       data-layout-curriculum="b" data-layout-closing="b" data-layout-footer="b">
@@ -1036,6 +1038,10 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     </h1>
     <p class="hero-sub body" data-rv="up">Full-stack and AI systems built for production,
       now extending into data engineering. Tirupati, India.</p>
+    <div class="hero-actions" data-rv="up">
+      <a class="text-action" href="#lessons" data-cursor>Explore my work <span aria-hidden="true">↗</span></a>
+      <a class="text-action secondary" href="assets/Prashanth-Reddy-Resume.pdf" target="_blank" rel="noopener" data-cursor>Résumé <span aria-hidden="true">↗</span></a>
+    </div>
   </div>
 
   <div class="hero-spacer"></div>
@@ -1043,18 +1049,18 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   <div class="hero-foot">
     <div class="hero-cue" data-rv="fade"><span>Scroll to enter</span><span class="track"><i></i></span></div>
     <div class="chapters" id="chips">
-      <div class="chip" data-chip="0" data-rv="up" data-cursor><span class="num">01</span>
-        <span class="tx"><b>Approach</b><p>What I optimise for once the demo is over.</p></span></div>
-      <div class="chip" data-chip="1" data-rv="up" data-cursor><span class="num">02</span>
-        <span class="tx"><b>Stack</b><p>What I use in production, and what I'm building toward.</p></span></div>
-      <div class="chip" data-chip="2" data-rv="up" data-cursor><span class="num">03</span>
-        <span class="tx"><b>Work</b><p>What shipped, what it changed, by how much.</p></span></div>
-      <div class="chip" data-chip="3" data-rv="up" data-cursor><span class="num">04</span>
-        <span class="tx"><b>Contact</b><p>Credentials, research, and how to reach me.</p></span></div>
+      <a class="chip" href="#gate" data-chip="0" data-rv="up" data-cursor><span class="num">01</span>
+        <span class="tx"><b>Approach</b><p>Reliable by design.</p></span></a>
+      <a class="chip" href="#pathways" data-chip="1" data-rv="up" data-cursor><span class="num">02</span>
+        <span class="tx"><b>Stack</b><p>From interface to intelligence.</p></span></a>
+      <a class="chip" href="#lessons" data-chip="2" data-rv="up" data-cursor><span class="num">03</span>
+        <span class="tx"><b>Work</b><p>Systems built. Outcomes measured.</p></span></a>
+      <a class="chip" href="#eternity" data-chip="3" data-rv="up" data-cursor><span class="num">04</span>
+        <span class="tx"><b>Contact</b><p>Start a conversation.</p></span></a>
     </div>
   </div>
 
-  <a class="peek" href="#pathways" data-view="3" data-rv="fade" data-cursor aria-label="Preview: PRAAHIS, production restaurant OS">
+  <a class="peek" href="#praahis" data-view="3" data-rv="fade" data-cursor aria-label="Explore PRAAHIS, production restaurant OS">
     <!-- data-frame, or the live view is blitted over the whole anchor and
          runs on down behind the caption instead of stopping at the frame -->
     <span class="peek-fr" data-frame></span>
@@ -1111,9 +1117,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
       <p class="lead" data-rv="up">PRAAHIS has run real restaurants since 2024 at 99.9% uptime. That
         number is not luck. It is a 30-table Postgres schema under row-level security, 1,300 automated
         tests at 95% coverage, and webhook validation on every rupee that moves.</p>
-      <p class="body" data-rv="up">I optimise for the hour nobody is looking: the system still standing
-        at 2am with no one on call. React and TypeScript above, PostgreSQL and Node.js below, and a
-        published CNN somewhere off to the side.</p>
+      <p class="body" data-rv="up">I connect the interface to the infrastructure: clear user flows,
+        dependable APIs, and data that stays consistent. My AI work extends that same approach
+        to models whose predictions can be inspected, not just accepted.</p>
       <a class="arrowlink" href="#pathways" data-rv="fade" data-cursor>
         <span>See the stack</span>
         <span class="ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
@@ -1156,6 +1162,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <div class="card-lab"><b>Frontend</b><span class="jp">画面</span></div>
       </div>
       <div class="card-meta"><span>React · TypeScript · Tailwind · Zustand</span><span>01 / 03</span></div>
+      <p class="stack-description">Interfaces that turn complex workflows into clear next steps.</p>
     </article>
     <article class="card" data-rv="up" data-view="1" data-cursor>
       <div class="card-fr" data-frame>
@@ -1164,24 +1171,36 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <div class="card-lab"><b>Backend &amp; Data</b><span class="jp">基盤</span></div>
       </div>
       <div class="card-meta"><span>Node.js · PostgreSQL · Supabase · WebSockets</span><span>02 / 03</span></div>
+      <p class="stack-description">Tenant isolation, validated payments, and orders delivered in real time.</p>
     </article>
     <article class="card" data-rv="up" data-view="2" data-cursor>
       <div class="card-fr" data-frame>
                 <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
         <i class="glow" style="--gx:48.0%; --gy:16.8%; --gr:20%; --gt:7.3s; --gt2:11.2s; --gc1:rgba(255,138,104,.52); --gc2:rgba(208,54,36,.24)"></i>
-        <div class="card-lab"><b>Cloud &amp; ML</b><span class="jp">知能</span></div>
+        <div class="card-lab"><b>AI &amp; Delivery</b><span class="jp">知能</span></div>
       </div>
       <div class="card-meta"><span>TensorFlow · PyTorch · CI/CD · Playwright</span><span>03 / 03</span></div>
+      <p class="stack-description">Explainable models and automated checks before software reaches users.</p>
     </article>
   </div>
 
+  <div class="system-story" data-rv="up">
+    <div class="system-heading"><div><span class="eyebrow">The connections matter</span><h2>One system. Every layer.</h2></div><span class="system-caption">PRAAHIS / ORDER LIFECYCLE</span></div>
+    <div class="system-steps" role="tablist" aria-label="PRAAHIS system layers">
+      <button id="layer-ui" role="tab" aria-selected="true" aria-controls="layer-detail" data-layer="0"><span>01</span>Interface<small>React / TypeScript</small></button>
+      <button id="layer-api" role="tab" aria-selected="false" aria-controls="layer-detail" tabindex="-1" data-layer="1"><span>02</span>API<small>Node.js / validation</small></button>
+      <button id="layer-data" role="tab" aria-selected="false" aria-controls="layer-detail" tabindex="-1" data-layer="2"><span>03</span>Data<small>PostgreSQL / RLS</small></button>
+      <button id="layer-events" role="tab" aria-selected="false" aria-controls="layer-detail" tabindex="-1" data-layer="3"><span>04</span>Real time<small>WebSockets / kitchen</small></button>
+    </div>
+    <div class="system-detail" id="layer-detail" role="tabpanel" tabindex="0" aria-labelledby="layer-ui"><b>A clear path from menu to order.</b><p>Guests order through a QR menu. React and TypeScript connect the customer-facing experience to restaurant operations.</p></div>
+  </div>
   <div class="roadmap" data-rv="up">
     <div class="roadmap-head">
       <span class="k">In progress</span><span class="rule"></span>
-      <span class="roadmap-tag">Data Engineering — 6-month plan</span>
+      <span class="roadmap-tag">Currently learning / Data engineering</span>
     </div>
-    <p class="roadmap-note">The three panels above are what I ship with today. This is what I'm
-      adding next, tracked honestly as I complete each piece rather than claimed up front.</p>
+    <p class="roadmap-note">Building on my PostgreSQL and Python foundation with scheduled workflows
+      and streaming data. These are learning priorities, not production experience.</p>
     <ul class="roadmap-list">
       <li><b>Airflow</b><span>Orchestration &amp; scheduling</span><i class="roadmap-dot" data-status="learning"></i></li>
       <li><b>Kafka</b><span>Streaming &amp; event pipelines</span><i class="roadmap-dot" data-status="learning"></i></li>
@@ -1207,43 +1226,53 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     <span class="k"><b>03</b> — Work</span><span class="rule"></span><span class="k jp">実績</span>
   </div>
   <div class="cur-head">
-    <h2 class="display h-sec" data-rv="up">Shipped, measured, still running.</h2>
-    <p class="body-lg" data-rv="up">Five entries, each with the number that made it worth doing.
-      One of them is still taking orders tonight.</p>
+    <h2 class="display h-sec" data-rv="up">Built to do real work.</h2>
+    <p class="body-lg" data-rv="up">A restaurant operating system. An explainable vision model.
+      Two different problems, the same care for what happens after the code runs.</p>
   </div>
+  <article class="project-feature" id="praahis" data-rv="up">
+    <div class="project-copy">
+      <span class="eyebrow">01 / Full-stack engineering · Jun 2024 – Present</span>
+      <h3>PRAAHIS</h3><p class="project-subtitle">The restaurant, connected.</p>
+      <p>QR ordering, kitchen displays, billing, and analytics in one multi-tenant platform. I built the interface, the data layer, and the real-time connections between them.</p>
+      <dl class="project-metrics"><div><dt>99.9%</dt><dd>Uptime</dd></div><div><dt>1,300+</dt><dd>Automated tests</dd></div><div><dt>95%</dt><dd>Test coverage</dd></div></dl>
+      <a class="text-action" href="https://praahis.me" target="_blank" rel="noopener" data-cursor>Visit PRAAHIS <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="project-system" aria-label="PRAAHIS architecture: QR ordering connects to kitchen, billing and analytics through a shared PostgreSQL data layer">
+      <div class="diagram-label"><span>System architecture</span><span class="jp" aria-hidden="true">実装</span></div>
+      <div class="order-route"><span>QR menu</span><i aria-hidden="true"></i><span>Order API</span><i aria-hidden="true"></i><span>Kitchen</span></div>
+      <div class="data-core"><span class="eyebrow">Shared foundation</span><strong>PostgreSQL</strong><span>30+ tables · Row-level security</span></div>
+      <div class="system-outputs"><span>Payments<small>Razorpay / webhooks</small></span><span>Operations<small>Billing / analytics</small></span></div>
+      <div class="diagram-foot">React · TypeScript · Supabase · WebSockets</div>
+    </div>
+    <details class="project-details"><summary>Engineering decisions <span aria-hidden="true">+</span></summary><div class="decision-grid"><div><h4>Keep tenants isolated.</h4><p>A 30+ table PostgreSQL schema with row-level security keeps restaurant data scoped to the right tenant.</p></div><div><h4>Validate every payment.</h4><p>Razorpay integration uses webhook validation, connecting payment events to the order workflow.</p></div><div><h4>Test the whole journey.</h4><p>1,300+ automated tests and 95% coverage support a product with reported Lighthouse scores of 97–99.</p></div></div></details>
+  </article>
+  <article class="project-feature research-feature" id="tb-research" data-rv="up">
+    <div class="project-copy"><span class="eyebrow">02 / Machine learning · Nov 2025 – Jun 2026</span><h3>Beyond a prediction.</h3><p class="project-subtitle">Explainable AI for tuberculosis detection.</p><p>A CNN for chest X-ray classification, paired with Grad-CAM to highlight the image regions behind a prediction. Model performance and interpretability belong in the same conversation.</p>
+      <dl class="project-metrics"><div><dt>96.2%</dt><dd>Model accuracy</dd></div><div><dt>15,000+</dt><dd>Chest X-rays</dd></div><div><dt>30%</dt><dd>Fewer false negatives</dd></div></dl>
+      <a class="text-action" href="mailto:prashanthkr7799@gmail.com?subject=Explainable%20AI%20project" data-cursor>Discuss the research <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="research-pipeline"><div class="diagram-label"><span>Model workflow</span><span class="jp" aria-hidden="true">研究</span></div><ol><li><span>01</span><div><b>Chest X-rays</b><small>Image dataset</small></div></li><li><span>02</span><div><b>Convolutional network</b><small>Learn visual features / classify</small></div></li><li><span>03</span><div><b>Grad-CAM</b><small>Localize influential image regions</small></div></li><li><span>04</span><div><b>Inspectable prediction</b><small>Classification with visual explanation</small></div></li></ol><div class="diagram-foot">Python · TensorFlow · Grad-CAM</div></div>
+    <details class="project-details"><summary>Research focus <span aria-hidden="true">+</span></summary><div class="decision-grid"><div><h4>Efficiency.</h4><p>A CNN with fewer parameters than VGG16, reaching 96.2% accuracy in the project evaluation.</p></div><div><h4>Interpretability.</h4><p>Grad-CAM highlights image regions that contribute to the model's classification.</p></div><div><h4>Evaluation.</h4><p>The project reports a 30% reduction in false negatives. These are research results, not a claim of clinical validation.</p></div></div></details>
+  </article>
+  <div class="experience-heading"><span class="eyebrow">Along the way</span><h3>Experience that shaped the work.</h3></div>
   <div class="cur" id="cur">
     <div class="les" data-les="0" data-cursor>
       <span class="k">01</span>
-      <h3>Software Engineer Intern<em class="jp">開発</em></h3>
+      <h3>Software Engineer Intern<em>Isree Research Software Labs</em></h3>
       <p>REST APIs for 10,000+ active users. Cut response times 25% by rewriting the queries that
         were actually hot, then locked the surface behind JWT-based RBAC.</p>
       <span class="t">Aug – Oct 2025</span><i class="bar"></i>
     </div>
-    <div class="les" data-les="1" data-cursor>
-      <span class="k">02</span>
-      <h3>PRAAHIS — Restaurant OS<em class="jp">創業</em></h3>
-      <p>Multi-tenant SaaS for QR ordering, kitchen displays, billing and analytics — a 30-table
-        Postgres schema under row-level security is the data layer underneath it. Live orders over
-        WebSockets, Razorpay with webhook validation, Lighthouse 97–99.</p>
-      <span class="t">Jun 2024 – Present</span><i class="bar"></i>
-    </div>
-    <div class="les" data-les="2" data-cursor>
-      <span class="k">03</span>
-      <h3>Explainable AI for TB Detection<em class="jp">研究</em></h3>
-      <p>Built the data pipeline first: 15,000+ chest X-rays cleaned, labeled, and split before
-        any model saw them. The CNN that came out of it hit 96.2% accuracy at a fraction of VGG16's
-        parameters, with Grad-CAM overlays so a radiologist can see what it saw.</p>
-      <span class="t">Nov 2025 – Jun 2026</span><i class="bar"></i>
-    </div>
     <div class="les" data-les="3" data-cursor>
-      <span class="k">04</span>
-      <h3>Online Data Analyst<em class="jp">評価</em></h3>
+      <span class="k">02</span>
+      <h3>Online Data Analyst<em>TELUS Digital</em></h3>
       <p>500+ model outputs reviewed a week, scored against a rubric to feed clean RLHF signal.</p>
       <span class="t">Jul – Oct 2025</span><i class="bar"></i>
     </div>
     <div class="les" data-les="4" data-cursor>
-      <span class="k">05</span>
-      <h3>Data Annotator<em class="jp">注釈</em></h3>
+      <span class="k">03</span>
+      <h3>Data Annotator<em>Innodata</em></h3>
       <p>Text labelled for classification and NER training, held above 97% accuracy.</p>
       <span class="t">Feb – Jul 2026</span><i class="bar"></i>
     </div>
@@ -1269,12 +1298,18 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   </div>
   <div class="eyebrow" data-rv="fade">Chapter 04 — Contact</div>
   <h2 class="display" data-rv="up">Let's talk.</h2>
-  <p class="body-lg" data-rv="up">ServiceNow certified — CSA, CAD, CIS-DF. B.Tech in Computer Science
-    (AI &amp; ML), Mohan Babu University, CGPA 8.4. IEEE co-author, ICKECS 2025.</p>
+  <p class="body-lg" data-rv="up">Working on a product, a data problem, or an idea that needs to ship?
+    Let's connect. Based in Tirupati, India.</p>
   <a class="cta" href="mailto:prashanthkr7799@gmail.com" data-rv="fade" data-cursor>
     <i></i><span>Email me</span>
     <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg>
   </a>
+  <div class="contact-links"><a class="text-action secondary" href="https://github.com/prashanth-k-1" target="_blank" rel="noopener">GitHub ↗</a><a class="text-action secondary" href="https://linkedin.com/in/prashanthkumarreddy" target="_blank" rel="noopener">LinkedIn ↗</a><a class="text-action secondary" href="assets/Prashanth-Reddy-Resume.pdf" download>Download résumé ↓</a></div>
+  <div class="credentials" id="credentials">
+    <div><h3>Education</h3><p>B.Tech, Computer Science (AI &amp; ML)<br>Mohan Babu University · 2022–2026<br>CGPA 8.4 / 10</p></div>
+    <div><h3>Certifications</h3><p>ServiceNow Certified System Administrator<br>Certified Application Developer<br>CIS — Data Foundations</p></div>
+    <div><h3>Published research</h3><p>IEEE co-author: Adaptive Thyroid Health Monitoring using machine learning.<br>Presented at ICKECS 2025.</p></div>
+  </div>
 </section>
 
 <!-- ============================================================ footer -->
@@ -1297,8 +1332,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <circle cx="22" cy="25" r="8.6" fill="#e0231c" fill-opacity=".9"/>
         <path d="M5 13h34M9 18.4h26M22 8.5v27" stroke="#dfe7e0" stroke-width="1.5"/>
       </svg>
-      <p>Full-stack and AI systems, built to survive contact with real users. The scene behind
-        this page is a live Three.js render, not a video.</p>
+      <p>Thoughtful interfaces. Dependable systems. Data with purpose.</p>
     </div>
     <div><h4>Sections</h4><ul>
       <li><a href="#gate" data-cursor>Approach</a></li>
@@ -1307,10 +1341,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
       <li><a href="#eternity" data-cursor>Contact</a></li>
     </ul></div>
     <div><h4>Highlights</h4><ul>
-      <li><a href="#lessons" data-cursor>PRAAHIS SaaS</a></li>
-      <li><a href="#lessons" data-cursor>Explainable AI (TB)</a></li>
-      <li><a href="#eternity" data-cursor>ServiceNow Certs</a></li>
-      <li><a href="#eternity" data-cursor>IEEE Paper</a></li>
+      <li><a href="#praahis" data-cursor>PRAAHIS SaaS</a></li>
+      <li><a href="#tb-research" data-cursor>Explainable AI (TB)</a></li>
+      <li><a href="#credentials" data-cursor>Certifications &amp; Research</a></li>
     </ul></div>
     <div><h4>Elsewhere</h4><ul>
       <li><a href="https://linkedin.com/in/prashanthkumarreddy" target="_blank" rel="noopener" data-cursor>LinkedIn</a></li>
@@ -4114,7 +4147,7 @@ function initPost() {
   POST.comp = new THREE.ShaderMaterial({
     uniforms: {
       tS: { value: null }, tB: { value: null }, uRes: { value: new THREE.Vector2(w, h) },
-      uT: { value: 0 }, uBloom: { value: .34 }, uCA: { value: 1 }, uGrain: { value: .020 },
+      uT: { value: 0 }, uBloom: { value: .34 }, uCA: { value: 1 }, uGrain: { value: .004 },
       uVig: { value: 1 }, uExp: { value: .62 }, uFade: { value: 1 }, uSat: { value: 1.05 }
     },
     vertexShader: QUAD_VS,
@@ -4400,11 +4433,11 @@ function layoutWord() {
      as the six-letter word could afford to, decapitates the K and the E. The
      narrow branch is held a little inside the edge because a phone frame has
      no gutter to lose the tracking that trails the final letter into. */
-  const fill = narrow ? .96 : 1.00;
+  const fill = narrow ? .86 : .90;
   const s = (R.x - L.x) * fill / WORD.ink.w;
   /* on a tall frame the mounds sit near mid-height, so the baseline has to
      ride above them or the whole word disappears into the grass */
-  const base = hit(0, narrow ? -.16 : -.40);
+  const base = hit(0, narrow ? -.16 : -.24);
   WORD.group.scale.setScalar(s);
   WORD.group.position.set(-WORD.ink.cx * s, base.y, WORD_Z);
   WORD.rise = WORD.ink.asc * s * 1.25;
@@ -4699,7 +4732,7 @@ function wireNav() {
     const t = document.querySelector(a.getAttribute('href'));
     if (!t) return;
     e.preventDefault();
-    scrollTo({ top: a.getAttribute('href') === '#top' ? 0 : t.offsetTop - 40, behavior: REDUCE ? 'auto' : 'smooth' });
+    scrollTo({ top: a.getAttribute('href') === '#top' ? 0 : t.getBoundingClientRect().top + scrollY - 100, behavior: REDUCE ? 'auto' : 'smooth' });
   }));
 }
 
@@ -4717,7 +4750,7 @@ function wireFocus() {
 
 function wireCursor() {
   const dot = $('#cursor');
-  if (COARSE) { dot.style.display = 'none'; return; }
+  if (COARSE || REDUCE) { dot.style.display = 'none'; return; }
   let x = vpW() / 2, y = vpH() / 2, tx2 = x, ty = y;
   addEventListener('pointermove', e => {
     tx2 = e.clientX; ty = e.clientY;
