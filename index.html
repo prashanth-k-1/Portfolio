@@ -613,9 +613,14 @@ body[data-layout-hero="b"] .hero-side .v{
 .hero-clock-meta span,.hero-clock-meta b,.hero-clock-meta i{
   display:block; font-style:normal; font-weight:400; text-transform:uppercase;
 }
-.hero-clock-meta span{ font-size:8px; letter-spacing:.22em; color:var(--vermilion); }
+.hero-clock-meta span{ font-size:clamp(11px,1vw,14px); line-height:1.15; letter-spacing:.16em; color:var(--vermilion); }
 .hero-clock-meta b{ font-size:9px; letter-spacing:.12em; color:var(--bone-dim); white-space:nowrap; }
-.hero-clock-meta i{ font-size:7px; line-height:1.5; letter-spacing:.15em; color:var(--muted); }
+.hero-clock-location{ margin-top:5px; }
+.hero-clock-location strong,.hero-clock-location small{
+  display:block; font-style:normal; font-weight:400; text-transform:uppercase; white-space:nowrap;
+}
+.hero-clock-location strong{ font-size:8px; line-height:1.4; letter-spacing:.13em; color:var(--bone-dim); }
+.hero-clock-location small{ font-size:6px; line-height:1.55; letter-spacing:.12em; color:var(--muted); }
 @keyframes clock-pulse{ 0%,49%{ opacity:1; } 50%,100%{ opacity:.25; } }
 
 /* The vertical title trades itself for its English reading on hover: the three
@@ -1069,7 +1074,11 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
       <div class="hero-clock-meta">
         <span class="clock-day">Friday</span>
         <b class="clock-date">09 Oct 2026</b>
-        <i>IST / Tirupati<br>Asia / Kolkata</i>
+        <i class="hero-clock-location">
+          <strong>Tirupati</strong>
+          <small>Andhra Pradesh / India</small>
+          <small>IST / UTC +05:30</small>
+        </i>
       </div>
     </div>
     <span class="v jp">
